@@ -1,0 +1,84 @@
+POWER QUALITY WAVEFORM ANALYSER - TEST LOGS
+
+
+UNIT TESTING
+
+
+Test File:
+unit_tests.c
+
+Functions Tested:
+- calculateRMS()
+- calculateMean()
+- peak_peak()
+- count_clipping()
+
+Unit Test Results:
+[PASSED] calculateRMS simple values
+[PASSED] calculateRMS repeated voltage
+[PASSED] calculateMean balanced waveform
+[PASSED] calculateMean positive values
+[PASSED] peak_peak maximum
+[PASSED] peak_peak minimum
+[PASSED] count_clipping positive and negative
+[PASSED] count_clipping no clipping
+
+Unit Test Summary:
+Passed: 8
+Failed: 0
+
+
+========================================
+INTEGRATION TESTING
+========================================
+
+Test File:
+integration_tests.c
+
+Blocks/Functions Tested Together:
+- main()
+- LoadCSV()
+- WriteReport()
+- calculateRMS()
+- calculateMean()
+- peak_peak()
+- count_clipping()
+
+Integration Test Results:
+[PASSED] LoadCSV reads 1000 samples
+[PASSED] results.txt was created
+[PASSED] Found text: Phase A
+[PASSED] Found text: Phase B
+[PASSED] Found text: Phase C
+[PASSED] Found text: RMS Voltage
+[PASSED] Found text: DC Offset
+[PASSED] Found text: Clipping Events
+[PASSED] Found text: Average Frequency
+[PASSED] Found text: Average Power Factor
+[PASSED] Found text: Average THD
+
+Integration Test Summary:
+Passed: 11
+Failed: 0
+
+
+========================================
+OVERALL TEST SUMMARY
+========================================
+
+The waveform analyser successfully passed all unit and integration tests.
+
+The system correctly:
+- Loaded waveform data from CSV
+- Calculated RMS voltage
+- Calculated DC offset
+- Detected clipping events
+- Generated results.txt
+- Calculated average frequency
+- Calculated average power factor
+- Calculated THD
+
+Future Improvements:
+- Corrupted CSV validation
+- Multi-file processing
+- Additional waveform statistics
