@@ -14,11 +14,11 @@ static void WritePhaseReport(FILE *file, const char *phaseName, double values[],
 
     //Then we write the calculated values to the file
     fprintf(file, "%s:\n", phaseName);
-    fprintf(file, "RMS Voltage:  %.2f v\n", calculateRMS(values, n));
-    fprintf(file, "DC Offset:  %.2f v\n", calculateMean(values, n));
-    fprintf(file, "Peak Voltage:  %.2f v\n", max);
-    fprintf(file, "Minimum Voltage:  %.2f v\n", min);
-    fprintf(file, "Peak-to-Peak Voltage:  %.2f v\n", max - min);
+    fprintf(file, "RMS Voltage:  %.2f V\n", calculateRMS(values, n));
+    fprintf(file, "DC Offset:  %.2f V\n", calculateMean(values, n));
+    fprintf(file, "Peak Voltage:  %.2f V\n", max);
+    fprintf(file, "Minimum Voltage:  %.2f V\n", min);
+    fprintf(file, "Peak-to-Peak Voltage:  %.2f V\n", max - min);
     fprintf(file, "Clipping Events: %d\n\n", count_clipping(values, n));
 }
 //THE CSV LOADING FUNCTION
@@ -99,7 +99,7 @@ void WriteReport(Dataset *data, int n){
     if (n > 0) {
         fprintf(file, "Average Frequency:  %.2f Hz\n", frequencySum/n);
         fprintf(file, "Average Power Factor:  %.2f\n",pwr_FactorSum/n);
-        fprintf(file, "Average THD:  %.2f %%\n",thdSum/n);
+        fprintf(file, "Average THD:  %.2f%%\n",thdSum/n);
     } else{
         fprintf(file, "No valid samples found.\n");
     }

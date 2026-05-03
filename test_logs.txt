@@ -28,9 +28,8 @@ Passed: 8
 Failed: 0
 
 
-========================================
 INTEGRATION TESTING
-========================================
+
 
 Test File:
 integration_tests.c
