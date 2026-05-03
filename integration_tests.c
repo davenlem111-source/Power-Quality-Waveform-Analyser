@@ -6,9 +6,10 @@
 #include <string.h>
 #include "IO.h"
 
-int testsPassed = 0;
+int testsPassed = 0;  //Counters so i can track how many tests pass or fail
 int testsFailed = 0;
 
+// Checks if two integer values match exactly
 void checkInt(const char *testName, int actual, int expected) {
     if (actual == expected) {
         printf("[PASSED] %s\n", testName);
@@ -19,6 +20,8 @@ void checkInt(const char *testName, int actual, int expected) {
     }
 }
 
+
+//This Checks if an output file was created successfully
 void checkFileExists(const char *filename) {
     FILE *file = fopen(filename, "r");
 
@@ -32,6 +35,7 @@ void checkFileExists(const char *filename) {
     }
 }
 
+//This looks for an expected test in an output file
 void checkTextInFile(const char *filename, const char *text) {
     FILE *file = fopen(filename, "r");
 
@@ -44,6 +48,7 @@ void checkTextInFile(const char *filename, const char *text) {
     char line[256];
     int found = 0;
 
+    //This reads through the whole file until the text is found
     while (fgets(line, sizeof(line), file)) {
         if (strstr(line, text) != NULL) {
             found = 1;
@@ -63,6 +68,7 @@ void checkTextInFile(const char *filename, const char *text) {
 }
 
 int main(void) {
+    //This allocates memory for the dataset
     Dataset *data = malloc(MAX_SAMPLES * sizeof(Dataset));
 
     if (data == NULL) {
@@ -70,14 +76,19 @@ int main(void) {
         return 1;
     }
 
+    //This loads the real CSV file
     int samplesRead = LoadCSV("power_quality_log.csv", data);
 
+    //checks the expected number of samples
     checkInt("LoadCSV reads 1000 samples", samplesRead, 1000);
 
+    //This creates the output report
     WriteReport(data, samplesRead);
 
+    //This checks that the report file exists
     checkFileExists("results.txt");
 
+    //Then this checks that the report sections and metrics exist
     checkTextInFile("results.txt", "Phase A");
     checkTextInFile("results.txt", "Phase B");
     checkTextInFile("results.txt", "Phase C");
@@ -88,8 +99,9 @@ int main(void) {
     checkTextInFile("results.txt", "Average Power Factor");
     checkTextInFile("results.txt", "Average THD");
 
-    free(data);
+    free(data);  //Now we free the memory after testing
 
+    //Now we print the final integration summary
     printf("\nIntegration Test Summary:\n");
     printf("Passed: %d\n", testsPassed);
     printf("Failed: %d\n", testsFailed);

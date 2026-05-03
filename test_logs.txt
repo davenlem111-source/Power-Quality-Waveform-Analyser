@@ -61,9 +61,9 @@ Passed: 11
 Failed: 0
 
 
-========================================
+
 OVERALL TEST SUMMARY
-========================================
+
 
 The waveform analyser successfully passed all unit and integration tests.
 
