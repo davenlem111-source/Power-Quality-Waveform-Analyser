@@ -1,0 +1,32 @@
+POWER QUALITY WAVEFORM ANALYSER REPORT
+
+Number of samples analysed: 1000
+
+Phase A:
+RMS Voltage:  229.81 V
+DC Offset:  -0.00 V
+Peak Voltage:  325.00 V
+Minimum Voltage:  -325.00 V
+Peak-to-Peak Voltage:  650.00 V
+Clipping Events: 20
+
+Phase B:
+RMS Voltage:  229.81 V
+DC Offset:  0.00 V
+Peak Voltage:  324.93 V
+Minimum Voltage:  -324.93 V
+Peak-to-Peak Voltage:  649.86 V
+Clipping Events: 20
+
+Phase C:
+RMS Voltage:  229.81 V
+DC Offset:  -0.00 V
+Peak Voltage:  324.93 V
+Minimum Voltage:  -324.93 V
+Peak-to-Peak Voltage:  649.86 V
+Clipping Events: 20
+
+Overall Measurements: 
+Average Frequency:  50.03 Hz
+Average Power Factor:  0.96
+Average THD:  2.09%
